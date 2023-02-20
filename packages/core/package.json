@@ -2,5 +2,8 @@
   "version": "1.0.0",
   "name": "@you-ui/core",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "build": "rollup --config"
+  }
 }
