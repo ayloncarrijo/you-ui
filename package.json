@@ -2,12 +2,19 @@
   "version": "1.0.0",
   "name": "you-ui",
   "private": true,
+  "type": "module",
+  "prettier": "@ayloncarrijo/prettier-config",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "@ayloncarrijo/eslint-config": "^1.0.1",
+    "@ayloncarrijo/prettier-config": "^1.0.0",
+    "@ayloncarrijo/typescript-config": "^1.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.34.0",
+    "typescript": "^4.9.5"
   }
 }
