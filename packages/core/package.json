@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "dev": "rollup --config --watch"
   }
 }

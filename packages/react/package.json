@@ -4,6 +4,13 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "dev": "rollup --config --watch"
+  },
+  "devDependencies": {
+    "@you-ui/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@you-ui/core": "workspace:*"
   }
 }
