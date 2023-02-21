@@ -1,3 +1,1 @@
-const index = {};
-
-export { index };
+export * from "./components";
