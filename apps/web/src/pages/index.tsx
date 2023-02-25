@@ -1,6 +1,6 @@
 import { Box } from "@you-ui/react";
 
-const Home = (): JSX.Element => {
+export default function Home(): JSX.Element {
   return (
     <div>
       <h1>YouUI</h1>
@@ -21,6 +21,4 @@ const Home = (): JSX.Element => {
       </Box>
     </div>
   );
-};
-
-export default Home;
+}

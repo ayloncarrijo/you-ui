@@ -8,7 +8,7 @@ import Document, {
   type DocumentInitialProps,
 } from "next/document";
 
-class AppDocument extends Document {
+export default class AppDocument extends Document {
   public static override async getInitialProps(
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
@@ -34,5 +34,3 @@ class AppDocument extends Document {
     );
   }
 }
-
-export default AppDocument;

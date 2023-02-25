@@ -1,20 +1,21 @@
 import { Roboto } from "@next/font/google";
 import localFont from "@next/font/local";
+import { baseStyles } from "@you-ui/core";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-const materialSymbolsFont = localFont({
+const materialSymbols = localFont({
   src: "../../public/fonts/material-symbols.woff2",
-  variable: "--material-symbols-font",
 });
 
-const robotoFont = Roboto({
+const roboto = Roboto({
   weight: ["300", "400"],
   subsets: ["latin"],
-  variable: "--roboto-font",
 });
 
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  baseStyles();
+
   return (
     <>
       <Head>
@@ -23,11 +24,16 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className={`${materialSymbolsFont.variable} ${robotoFont.variable}`}>
-        <Component {...pageProps} />
-      </div>
+      <style jsx global>
+        {`
+          :root {
+            --app-fonts-material-symbols: ${materialSymbols.style.fontFamily};
+            --app-fonts-roboto: ${roboto.style.fontFamily};
+          }
+        `}
+      </style>
+
+      <Component {...pageProps} />
     </>
   );
-};
-
-export default App;
+}
