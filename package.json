@@ -12,21 +12,23 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "web": "pnpm --filter \"@you-ui/web\"",
     "core": "pnpm --filter \"@you-ui/core\"",
     "react": "pnpm --filter \"@you-ui/react\""
   },
   "devDependencies": {
-    "@ayloncarrijo/eslint-config": "^1.0.1",
+    "@ayloncarrijo/eslint-config": "^1.3.0",
     "@ayloncarrijo/prettier-config": "^1.0.0",
     "@ayloncarrijo/typescript-config": "^1.0.0",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.34.0",
+    "eslint-config-next": "^13.1.6",
     "rollup": "^3.17.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-ts": "^3.2.0",
-    "turbo": "^1.8.1",
+    "turbo": "^1.8.2",
     "typescript": "^4.9.5"
   }
 }
