@@ -1,6 +1,6 @@
 import { createStitches, type PropertyValue } from "@stitches/react";
 import { spaceAndSizes } from "./spaceAndSizes";
-import { createTypographyTokens, type TypographyToken } from "./typography";
+import { createTypographyTokens, type TypographyTokens } from "./typography";
 
 export const {
   config,
@@ -119,7 +119,7 @@ export const {
       width: value,
       height: value,
     }),
-    typography: (value: `$${TypographyToken}`) => ({
+    typography: (value: `$${keyof TypographyTokens}`) => ({
       fontFamily: value,
       fontSize: value,
       lineHeight: value,
