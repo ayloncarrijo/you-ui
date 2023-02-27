@@ -1,4 +1,4 @@
-import { globalCss } from "./stitches.config";
+import { globalCss } from "./stitches";
 
 export const baseStyles = globalCss({
   "*, ::before, ::after": {

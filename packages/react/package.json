@@ -27,7 +27,7 @@
   },
   "peerDependencies": {
     "@you-ui/core": "workspace:*",
-    "@types/react": "^18.0.28",
-    "react": "^18.2.0"
+    "@types/react": "^18.0.0",
+    "react": "^18.0.0"
   }
 }

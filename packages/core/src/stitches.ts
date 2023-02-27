@@ -1,36 +1,6 @@
 import { createStitches, type PropertyValue } from "@stitches/react";
-
-const spaceAndSizes = {
-  px: "1px",
-  1: "0.25rem",
-  2: "0.5rem",
-  3: "0.75rem",
-  4: "1rem",
-  5: "1.25rem",
-  6: "1.5rem",
-  7: "1.75rem",
-  8: "2rem",
-  9: "2.25rem",
-  10: "2.5rem",
-  11: "2.75rem",
-  12: "3rem",
-  16: "4rem",
-  20: "5rem",
-  24: "6rem",
-  28: "7rem",
-  32: "8rem",
-  36: "9rem",
-  40: "10rem",
-  44: "11rem",
-  48: "12rem",
-  52: "13rem",
-  56: "14rem",
-  60: "15rem",
-  64: "16rem",
-  72: "18rem",
-  80: "20rem",
-  96: "24rem",
-};
+import { spaceAndSizes } from "./spaceAndSizes";
+import { createTypographyTokens, type TypographyToken } from "./typography";
 
 export const {
   config,
@@ -44,7 +14,7 @@ export const {
   styled,
   theme,
 } = createStitches({
-  prefix: "you-ui",
+  prefix: "youUi",
   theme: {
     colors: {
       white: "#fff",
@@ -82,11 +52,15 @@ export const {
       50: 50,
     },
     fonts: {
-      sans: 'Roboto, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-      serif:
-        '"Roboto Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-      mono: '"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      sans: "Roboto, sans-serif",
+      serif: "'Roboto Serif', serif",
+      mono: "'Roboto Mono', monospace",
+      ...createTypographyTokens("fontFamily"),
     },
+    fontSizes: createTypographyTokens("fontSize"),
+    lineHeights: createTypographyTokens("lineHeight"),
+    fontWeights: createTypographyTokens("fontWeight"),
+    letterSpacings: createTypographyTokens("letterSpacing"),
   },
   media: {
     sm: "(min-width: 480px)",
@@ -118,7 +92,6 @@ export const {
       marginTop: value,
       marginBottom: value,
     }),
-
     p: (value: PropertyValue<"padding">) => ({
       padding: value,
     }),
@@ -142,10 +115,16 @@ export const {
       paddingTop: value,
       paddingBottom: value,
     }),
-
     size: (value: PropertyValue<"width">) => ({
       width: value,
       height: value,
+    }),
+    typography: (value: `$${TypographyToken}`) => ({
+      fontFamily: value,
+      fontSize: value,
+      lineHeight: value,
+      fontWeight: value,
+      letterSpacing: value,
     }),
   },
 });

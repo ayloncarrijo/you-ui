@@ -9,7 +9,7 @@ const materialSymbols = localFont({
 });
 
 const roboto = Roboto({
-  weight: ["300", "400"],
+  weight: ["400", "500"],
   subsets: ["latin"],
 });
 

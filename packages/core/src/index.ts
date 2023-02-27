@@ -1,2 +1,2 @@
 export * from "./baseStyles";
-export * from "./stitches.config";
+export * from "./stitches";

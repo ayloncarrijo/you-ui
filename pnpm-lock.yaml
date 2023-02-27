@@ -35,6 +35,7 @@ importers:
   apps/web:
     specifiers:
       '@next/font': 13.1.6
+      '@stitches/react': 1.3.1-1
       '@types/node': 18.14.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -45,6 +46,7 @@ importers:
       react-dom: 18.2.0
     dependencies:
       '@next/font': 13.1.6
+      '@stitches/react': 1.3.1-1_react@18.2.0
       '@types/node': 18.14.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -56,9 +58,12 @@ importers:
 
   packages/core:
     specifiers:
+      '@importantimport/material-color-utilities': ^0.2.1
       '@stitches/react': 1.3.1-1
       '@types/react': ^18.0.28
       react: ^18.2.0
+    dependencies:
+      '@importantimport/material-color-utilities': 0.2.1
     devDependencies:
       '@stitches/react': 1.3.1-1_react@18.2.0
       '@types/react': 18.0.28
@@ -252,6 +257,11 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@importantimport/material-color-utilities/0.2.1:
+    resolution: {integrity: sha512-hXwCqYJwQDSKp7dAfp1QE9B4eMxGBgU3InAj+VSZjuNE08sepVLqULqp55ZsvN1YgluH2PgdAR30OSJNgURFTw==}
+    requiresBuild: true
+    dev: false
 
   /@jridgewell/resolve-uri/3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
@@ -500,7 +510,6 @@ packages:
       react: '>= 16.3.0'
     dependencies:
       react: 18.2.0
-    dev: true
 
   /@swc/helpers/0.4.14:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
