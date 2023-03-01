@@ -1,6 +1,6 @@
 import type { CSS } from "@stitches/react";
 import { typographies } from "./typographies";
-import { capitalize } from "./utils/capitalize";
+import { capitalize } from "./utils/stringUtils";
 
 export type TypographyStyles = Pick<
   CSS,

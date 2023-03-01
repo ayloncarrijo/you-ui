@@ -1,5 +1,5 @@
 import type { TypographySize, TypographyStyles } from "./typography";
-import { convertPxToRem } from "./utils/convertPxToRem";
+import { convertPxToRem } from "./utils/cssUtils";
 
 export const typographies = {
   display: {
