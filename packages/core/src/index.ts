@@ -1,3 +1,3 @@
-export * from "./baseStyles";
-export * from "./stitches";
-export * from "./typography";
+export * from "./stitches.config";
+export * from "./stitches/global";
+export * from "./types/typography";

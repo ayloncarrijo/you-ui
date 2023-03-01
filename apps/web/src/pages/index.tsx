@@ -1,4 +1,4 @@
-import { Box, Typography } from "@you-ui/react";
+import { Box, Text } from "@you-ui/react";
 
 export default function Home(): JSX.Element {
   return (
@@ -22,53 +22,31 @@ export default function Home(): JSX.Element {
         Test
       </Box>
 
-      <Typography>Text</Typography>
+      <Text as="h1" typography="displayLg">
+        Text
+      </Text>
+      <Text as="h2" typography="displayMd">
+        Text
+      </Text>
+      <Text as="h3" typography="displaySm">
+        Text
+      </Text>
 
-      <Typography as="h1" variant="display" size="lg">
-        Text
-      </Typography>
-      <Typography as="h2" variant="display" size="md">
-        Text
-      </Typography>
-      <Typography as="h3" variant="display" size="sm">
-        Text
-      </Typography>
-      <Typography variant="headline" size="lg">
-        Text
-      </Typography>
-      <Typography variant="headline" size="md">
-        Text
-      </Typography>
-      <Typography variant="headline" size="sm">
-        Text
-      </Typography>
-      <Typography variant="title" size="lg">
-        Text
-      </Typography>
-      <Typography variant="title" size="md">
-        Text
-      </Typography>
-      <Typography variant="title" size="sm">
-        Text
-      </Typography>
-      <Typography variant="body" size="lg">
-        Text
-      </Typography>
-      <Typography variant="body" size="md">
-        Text
-      </Typography>
-      <Typography variant="body" size="sm">
-        Text
-      </Typography>
-      <Typography variant="label" size="lg">
-        Text
-      </Typography>
-      <Typography variant="label" size="md">
-        Text
-      </Typography>
-      <Typography variant="label" size="sm">
-        Text
-      </Typography>
+      <Text typography="headlineLg">Text</Text>
+      <Text typography="headlineMd">Text</Text>
+      <Text typography="headlineSm">Text</Text>
+
+      <Text typography="titleLg">Text</Text>
+      <Text typography="titleMd">Text</Text>
+      <Text typography="titleSm">Text</Text>
+
+      <Text typography="bodyLg">Text</Text>
+      <Text typography="bodyMd">Text</Text>
+      <Text typography="bodySm">Text</Text>
+
+      <Text typography="labelLg">Text</Text>
+      <Text typography="labelMd">Text</Text>
+      <Text typography="labelSm">Text</Text>
     </div>
   );
 }
