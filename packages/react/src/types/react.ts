@@ -1,7 +1,6 @@
 import type { CSS } from "@stitches/react";
 import type { config } from "@you-ui/core";
-import React from "react";
-import type { LeftJoin } from "../types/utils";
+import type { LeftJoin } from "./utils";
 
 interface StitchesProps<As> {
   as?: As;
@@ -31,8 +30,3 @@ export type GetDefaultAs<T> = T extends ForwardRefComponent<
 >
   ? DefaultAs
   : never;
-
-export const forwardRef = <Props, DefaultAs>(
-  render: ForwardRefRenderFunction<Props, DefaultAs>
-): ForwardRefComponent<Props, DefaultAs> =>
-  React.forwardRef(render) as ForwardRefComponent<Props, DefaultAs>;

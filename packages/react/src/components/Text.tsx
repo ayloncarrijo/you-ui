@@ -1,5 +1,5 @@
 import type { TypographyTokens } from "@you-ui/core";
-import { forwardRef } from "../utils/forwardRef";
+import { forwardRef } from "../utils/react";
 import { Box } from "./Box";
 
 interface TextProps {
