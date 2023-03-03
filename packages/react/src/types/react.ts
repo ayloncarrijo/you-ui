@@ -1,10 +1,9 @@
-import type { CSS } from "@stitches/react";
-import type { config } from "@you-ui/core";
+import type { CSS } from "@you-ui/core";
 import type { LeftJoin } from "./utils";
 
 interface StitchesProps<As> {
   as?: As;
-  css?: CSS<typeof config>;
+  css?: CSS;
 }
 
 export type PropsWithAs<Props, As> = As extends React.ElementType

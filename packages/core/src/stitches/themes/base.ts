@@ -2,21 +2,9 @@ import type {
   TypographySize,
   TypographyStyles,
   TypographyTokens,
-} from "../types/typography";
-import { convertPxToRem } from "../utils/css";
-import { capitalize } from "../utils/string";
-
-const createTypographyTokens = (
-  style: keyof TypographyStyles
-): TypographyTokens =>
-  Object.fromEntries(
-    Object.entries(typographies).flatMap(([role, sizes]) =>
-      Object.entries(sizes).map(([size, styles]) => [
-        `${role}${capitalize(size)}`,
-        styles[style],
-      ])
-    )
-  ) as TypographyTokens;
+} from "../../types/typography";
+import { convertPxToRem } from "../../utils/css";
+import { capitalize } from "../../utils/string";
 
 export const zIndices = {
   0: 0,
@@ -27,21 +15,13 @@ export const zIndices = {
   50: 50,
 };
 
-export const colors = {
-  white: "#fff",
-  black: "#000",
-  primary: "red",
-  secondary: "green",
-  tertiary: "blue",
-};
-
 export const radii = {
-  xs: "0.25rem",
-  sm: "0.5rem",
-  md: "0.75rem",
-  lg: "1rem",
-  xl: "1.5rem",
-  "2xl": "2rem",
+  xs: convertPxToRem(4),
+  sm: convertPxToRem(8),
+  md: convertPxToRem(12),
+  lg: convertPxToRem(16),
+  xl: convertPxToRem(24),
+  "2xl": convertPxToRem(32),
   full: "9999px",
 };
 
@@ -57,34 +37,36 @@ export const shadows = {
 
 export const sizes = {
   px: "1px",
-  1: "0.25rem",
-  2: "0.5rem",
-  3: "0.75rem",
-  4: "1rem",
-  5: "1.25rem",
-  6: "1.5rem",
-  7: "1.75rem",
-  8: "2rem",
-  9: "2.25rem",
-  10: "2.5rem",
-  11: "2.75rem",
-  12: "3rem",
-  16: "4rem",
-  20: "5rem",
-  24: "6rem",
-  28: "7rem",
-  32: "8rem",
-  36: "9rem",
-  40: "10rem",
-  44: "11rem",
-  48: "12rem",
-  52: "13rem",
-  56: "14rem",
-  60: "15rem",
-  64: "16rem",
-  72: "18rem",
-  80: "20rem",
-  96: "24rem",
+  1: convertPxToRem(4),
+  2: convertPxToRem(8),
+  3: convertPxToRem(12),
+  4: convertPxToRem(16),
+  5: convertPxToRem(20),
+  6: convertPxToRem(24),
+  7: convertPxToRem(28),
+  8: convertPxToRem(32),
+  9: convertPxToRem(36),
+  10: convertPxToRem(40),
+  11: convertPxToRem(44),
+  12: convertPxToRem(48),
+  16: convertPxToRem(64),
+  20: convertPxToRem(80),
+  24: convertPxToRem(96),
+  28: convertPxToRem(112),
+  32: convertPxToRem(128),
+  36: convertPxToRem(144),
+  40: convertPxToRem(160),
+  44: convertPxToRem(176),
+  48: convertPxToRem(192),
+  52: convertPxToRem(208),
+  56: convertPxToRem(224),
+  60: convertPxToRem(240),
+  64: convertPxToRem(256),
+  72: convertPxToRem(288),
+  80: convertPxToRem(320),
+  96: convertPxToRem(384),
+  112: convertPxToRem(448),
+  128: convertPxToRem(512),
 };
 
 export const space = sizes;
@@ -208,6 +190,7 @@ export const typographies = {
 } satisfies Record<string, Record<TypographySize, TypographyStyles>>;
 
 export const fonts = {
+  icons: "'Material Symbols Outlined'",
   sans: "Roboto, sans-serif",
   serif: "'Roboto Serif', serif",
   mono: "'Roboto Mono', monospace",
@@ -221,3 +204,16 @@ export const fontWeights = createTypographyTokens("fontWeight");
 export const letterSpacings = createTypographyTokens("letterSpacing");
 
 export const lineHeights = createTypographyTokens("lineHeight");
+
+function createTypographyTokens(
+  style: keyof TypographyStyles
+): TypographyTokens {
+  return Object.fromEntries(
+    Object.entries(typographies).flatMap(([role, sizes]) =>
+      Object.entries(sizes).map(([size, styles]) => [
+        `${role}${capitalize(size)}`,
+        styles[style],
+      ])
+    )
+  ) as TypographyTokens;
+}

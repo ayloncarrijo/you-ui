@@ -1,5 +1,5 @@
 import type { CSS } from "@stitches/react";
-import type { typographies } from "../stitches/theme";
+import type { typographies } from "../stitches/themes/base";
 
 export type TypographyStyles = Pick<
   CSS,

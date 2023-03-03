@@ -3,8 +3,9 @@ import localFont from "@next/font/local";
 import { baseStyles } from "@you-ui/core";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { lightTheme } from "../stitches.config";
 
-const materialSymbols = localFont({
+const icons = localFont({
   src: "../../public/fonts/material-symbols.woff2",
 });
 
@@ -27,13 +28,15 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <style jsx global>
         {`
           :root {
-            --app-fonts-material-symbols: ${materialSymbols.style.fontFamily};
+            --app-fonts-icons: ${icons.style.fontFamily};
             --app-fonts-roboto: ${roboto.style.fontFamily};
           }
         `}
       </style>
 
-      <Component {...pageProps} />
+      <div className={`${lightTheme}`}>
+        <Component {...pageProps} />
+      </div>
     </>
   );
 }

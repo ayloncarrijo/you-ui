@@ -1,6 +1,5 @@
 import { createStitches, type PropertyValue } from "@stitches/react";
 import {
-  colors,
   fonts,
   fontSizes,
   fontWeights,
@@ -11,21 +10,11 @@ import {
   sizes,
   space,
   zIndices,
-} from "./stitches/theme";
+} from "./stitches/themes/base";
+import { colors } from "./stitches/themes/light";
 import type { TypographyTokens } from "./types/typography";
 
-export const {
-  config,
-  createTheme,
-  css,
-  getCssText,
-  globalCss,
-  keyframes,
-  prefix,
-  reset,
-  styled,
-  theme,
-} = createStitches({
+const stitches = createStitches({
   prefix: "youUi",
   theme: {
     zIndices,
@@ -106,3 +95,29 @@ export const {
     }),
   },
 });
+
+export const {
+  config,
+  createTheme,
+  css,
+  getCssText,
+  globalCss,
+  keyframes,
+  prefix,
+  reset,
+  styled,
+  theme,
+} = stitches;
+
+export const addClassAlias = <T extends ReturnType<typeof createTheme>>(
+  theme: T,
+  classes: Array<string> = []
+): T => {
+  const alias = `${stitches.theme}${
+    classes.length > 0 ? ` ${classes.join(" ")} ` : " "
+  }${theme.className}`;
+
+  theme.toString = () => alias;
+
+  return theme;
+};
