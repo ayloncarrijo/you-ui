@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         `}
       </style>
 
-      <div className={`${lightTheme}`}>
+      <div className={lightTheme}>
         <Component {...pageProps} />
       </div>
     </>

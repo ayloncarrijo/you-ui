@@ -1,4 +1,8 @@
-import { addClassAlias, createTheme } from "@you-ui/core";
+import { createPalette, createTheme, extendTheme } from "@you-ui/core";
+
+const palette = createPalette({
+  primary: "#7c43ab",
+});
 
 export const baseTheme = createTheme({
   fonts: {
@@ -7,20 +11,16 @@ export const baseTheme = createTheme({
   },
 });
 
-export const lightTheme = addClassAlias(
+export const lightTheme = extendTheme(
   createTheme({
-    colors: {
-      primary: "green",
-    },
+    colors: palette.light,
   }),
   [baseTheme]
 );
 
-export const darkTheme = addClassAlias(
+export const darkTheme = extendTheme(
   createTheme({
-    colors: {
-      primary: "blue",
-    },
+    colors: palette.dark,
   }),
   [baseTheme]
 );

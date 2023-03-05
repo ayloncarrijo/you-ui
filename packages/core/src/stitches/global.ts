@@ -155,7 +155,7 @@ export const baseStyles = globalCss({
 
   "input::placeholder, textarea::placeholder": {
     opacity: 1,
-    color: "darkgray", // TODO: put a color from the theme
+    color: "darkgray",
   },
 
   'button, [role="button"]': {

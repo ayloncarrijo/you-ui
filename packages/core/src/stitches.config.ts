@@ -10,15 +10,30 @@ import {
   sizes,
   space,
   zIndices,
-} from "./stitches/themes/base";
-import { colors } from "./stitches/themes/light";
+} from "./stitches/theme";
 import type { TypographyTokens } from "./types/typography";
+import { createPalette } from "./utils/palette";
 
-const stitches = createStitches({
+const palette = createPalette({
+  primary: "#7c43ab",
+});
+
+export const {
+  config,
+  createTheme,
+  css,
+  getCssText,
+  globalCss,
+  keyframes,
+  prefix,
+  reset,
+  styled,
+  theme: baseTheme,
+} = createStitches({
   prefix: "youUi",
   theme: {
     zIndices,
-    colors,
+    colors: palette.light,
     radii,
     shadows,
     sizes,
@@ -96,28 +111,19 @@ const stitches = createStitches({
   },
 });
 
-export const {
-  config,
-  createTheme,
-  css,
-  getCssText,
-  globalCss,
-  keyframes,
-  prefix,
-  reset,
-  styled,
-  theme,
-} = stitches;
+export const darkTheme = createTheme({
+  colors: palette.dark,
+});
 
-export const addClassAlias = <T extends ReturnType<typeof createTheme>>(
+export const extendTheme = <T extends ReturnType<typeof createTheme>>(
   theme: T,
-  classes: Array<string> = []
+  themes: Array<string> = []
 ): T => {
-  const alias = `${stitches.theme}${
-    classes.length > 0 ? ` ${classes.join(" ")} ` : " "
+  const className = `${baseTheme}${
+    themes.length > 0 ? ` ${themes.join(" ")} ` : " "
   }${theme.className}`;
 
-  theme.toString = () => alias;
+  theme.toString = () => className;
 
   return theme;
 };

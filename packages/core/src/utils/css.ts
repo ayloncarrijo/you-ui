@@ -1,1 +1,1 @@
-export const convertPxToRem = (px: number): string => `${px / 16}rem`;
+export const getRemFromPx = (px: number): string => `${px / 16}rem`;

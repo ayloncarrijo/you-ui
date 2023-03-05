@@ -1,58 +1,32 @@
-import { css } from "@you-ui/core";
 import { Box, Text } from "@you-ui/react";
 
 export default function Home(): JSX.Element {
   return (
-    <div>
-      <h1>YouUI</h1>
-      <p className={css({ fontFamily: "$icons" })()}>home</p>
-      <Box
-        css={{
-          m: "$8",
-          p: "$8",
-          backgroundColor: "$white",
-          borderRadius: "$full",
-          boxShadow: "$2xl",
-          size: "$32",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-
-          typography: "$displayMd",
-        }}
-      >
-        Test
-      </Box>
-
+    <Box css={{ minHeight: "100vh", backgroundColor: "$background" }}>
       <Text
         as="h1"
         typography="displayLg"
-        css={{ backgroundColor: "$primary" }}
+        css={{
+          py: "$8",
+          textAlign: "center",
+          backgroundColor: "$primary",
+          color: "$onPrimary",
+        }}
       >
-        Text
+        YouUI
       </Text>
-      <Text as="h2" typography="displayMd">
-        Text
-      </Text>
-      <Text as="h3" typography="displaySm">
-        Text
-      </Text>
-
-      <Text typography="headlineLg">Text</Text>
-      <Text typography="headlineMd">Text</Text>
-      <Text typography="headlineSm">Text</Text>
-
-      <Text typography="titleLg">Text</Text>
-      <Text typography="titleMd">Text</Text>
-      <Text typography="titleSm">Text</Text>
-
-      <Text typography="bodyLg">Text</Text>
-      <Text typography="bodyMd">Text</Text>
-      <Text typography="bodySm">Text</Text>
-
-      <Text typography="labelLg">Text</Text>
-      <Text typography="labelMd">Text</Text>
-      <Text typography="labelSm">Text</Text>
-    </div>
+      <Box css={{ py: "$8", backgroundColor: "$warning", color: "$onWarning" }}>
+        Warning
+      </Box>
+      <Box css={{ py: "$8", backgroundColor: "$error", color: "$onError" }}>
+        Error
+      </Box>
+      <Box css={{ py: "$8", backgroundColor: "$success", color: "$onSuccess" }}>
+        Success
+      </Box>
+      <Box css={{ py: "$8", backgroundColor: "$info", color: "$onInfo" }}>
+        Info
+      </Box>
+    </Box>
   );
 }
