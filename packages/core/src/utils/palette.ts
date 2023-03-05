@@ -94,30 +94,24 @@ export const createPalette = ({
   error = "#ba1a1a",
   info = "#00639a",
 }: SourceColors): Palette => {
-  const theme = themeFromSourceColor(getArgbFromColor(primary), [
-    ...(secondary != null
-      ? [
-          {
-            name: "secondary",
-            value: getArgbFromColor(secondary),
-            blend: false,
-          },
-        ]
-      : []),
-    ...(tertiary != null
-      ? [
-          {
-            name: "tertiary",
-            value: getArgbFromColor(tertiary),
-            blend: false,
-          },
-        ]
-      : []),
-    { name: "warning", value: getArgbFromColor(warning), blend: false },
-    { name: "success", value: getArgbFromColor(success), blend: false },
-    { name: "error", value: getArgbFromColor(error), blend: false },
-    { name: "info", value: getArgbFromColor(info), blend: false },
-  ]);
+  const theme = themeFromSourceColor(
+    getArgbFromColor(primary),
+    Object.entries({
+      primary,
+      secondary,
+      tertiary,
+      warning,
+      success,
+      error,
+      info,
+    } satisfies Record<keyof SourceColors, Color | undefined>)
+      .filter((entry): entry is [string, Color] => entry[1] != null)
+      .map(([key, value]) => ({
+        name: key,
+        value: getArgbFromColor(value),
+        blend: false,
+      }))
+  );
 
   return {
     light: createColorScheme(theme, "light"),

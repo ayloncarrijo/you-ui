@@ -1,10 +1,6 @@
-import type {
-  TypographySize,
-  TypographyStyles,
-  TypographyTokens,
-} from "../types/typography";
+import type { Typographies } from "../types/typography";
 import { getRemFromPx } from "../utils/css";
-import { capitalize } from "../utils/string";
+import { createTypographyTokens } from "../utils/typography";
 
 export const zIndices = {
   0: 0,
@@ -71,23 +67,7 @@ export const sizes = {
 
 export const space = sizes;
 
-export const fonts = {
-  icons: "'Material Symbols Outlined'",
-  sans: "Roboto, sans-serif",
-  serif: "'Roboto Serif', serif",
-  mono: "'Roboto Mono', monospace",
-  ...createTypographyTokens("fontFamily"),
-};
-
-export const fontSizes = createTypographyTokens("fontSize");
-
-export const fontWeights = createTypographyTokens("fontWeight");
-
-export const letterSpacings = createTypographyTokens("letterSpacing");
-
-export const lineHeights = createTypographyTokens("lineHeight");
-
-export const typographies = {
+export const typographies: Typographies = {
   display: {
     lg: {
       fontFamily: "$sans",
@@ -203,17 +183,23 @@ export const typographies = {
       letterSpacing: getRemFromPx(0.5),
     },
   },
-} satisfies Record<string, Record<TypographySize, TypographyStyles>>;
+};
 
-function createTypographyTokens(
-  style: keyof TypographyStyles
-): TypographyTokens {
-  return Object.fromEntries(
-    Object.entries(typographies).flatMap(([role, sizes]) =>
-      Object.entries(sizes).map(([size, styles]) => [
-        `${role}${capitalize(size)}`,
-        styles[style],
-      ])
-    )
-  ) as TypographyTokens;
-}
+export const fonts = {
+  icons: "'Material Symbols Outlined'",
+  sans: "Roboto, sans-serif",
+  serif: "'Roboto Serif', serif",
+  mono: "'Roboto Mono', monospace",
+  ...createTypographyTokens(typographies, "fontFamily"),
+};
+
+export const fontSizes = createTypographyTokens(typographies, "fontSize");
+
+export const fontWeights = createTypographyTokens(typographies, "fontWeight");
+
+export const letterSpacings = createTypographyTokens(
+  typographies,
+  "letterSpacing"
+);
+
+export const lineHeights = createTypographyTokens(typographies, "lineHeight");
