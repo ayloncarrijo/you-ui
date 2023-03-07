@@ -1,9 +1,10 @@
 import { Roboto } from "@next/font/google";
 import localFont from "@next/font/local";
 import { baseStyles } from "@you-ui/core";
+import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { lightTheme } from "../stitches.config";
+import { darkTheme, lightTheme } from "../stitches.config";
 
 const icons = localFont({
   src: "../../public/fonts/material-symbols.woff2",
@@ -34,9 +35,15 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         `}
       </style>
 
-      <div className={lightTheme}>
+      <ThemeProvider
+        attribute="class"
+        value={{
+          light: lightTheme,
+          dark: darkTheme,
+        }}
+      >
         <Component {...pageProps} />
-      </div>
+      </ThemeProvider>
     </>
   );
 }

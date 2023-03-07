@@ -5,16 +5,16 @@ import {
   hexFromArgb,
   themeFromSourceColor,
 } from "@importantimport/material-color-utilities";
+import capitalize from "lodash/capitalize";
 import type {
   Color,
   ColorGroup,
   ColorScheme,
-  FlatCustomColors,
+  CustomColors,
   Palette,
   SchemeType,
   SourceColors,
 } from "../types/palette";
-import { capitalize } from "./string";
 
 const identifyColorGroup = <T extends string>(
   colorName: T,
@@ -32,7 +32,7 @@ const identifyColorGroup = <T extends string>(
 const flattenCustomColors = (
   customColors: Array<Material.CustomColorGroup>,
   schemeType: SchemeType
-): FlatCustomColors =>
+): CustomColors =>
   customColors
     .map((customColor) =>
       identifyColorGroup(customColor.color.name, customColor[schemeType])
@@ -40,7 +40,7 @@ const flattenCustomColors = (
     .reduce(
       (accumulator, currentValue) => ({ ...accumulator, ...currentValue }),
       {}
-    ) as FlatCustomColors;
+    ) as CustomColors;
 
 const getArgbFromColor = (color: Color): number =>
   typeof color === "string" ? argbFromHex(color) : argbFromRgb(...color);

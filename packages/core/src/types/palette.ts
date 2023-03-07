@@ -20,9 +20,6 @@ export type ColorGroup<T extends string, V> = {
     | `on${Capitalize<K>}Container`]: V;
 };
 
-export type FlatCustomColors = ColorGroup<HelperColor, number> &
-  Partial<ColorGroup<"secondary" | "tertiary", number>>;
-
 export type ColorScheme = ColorGroup<MainColor | HelperColor, string> & {
   background: string;
   onBackground: string;
@@ -35,6 +32,9 @@ export type ColorScheme = ColorGroup<MainColor | HelperColor, string> & {
   shadow: string;
   scrim: string;
 };
+
+export type CustomColors = ColorGroup<HelperColor, number> &
+  Partial<ColorGroup<"secondary" | "tertiary", number>>;
 
 export interface SourceColors {
   primary: Color;

@@ -1,26 +1,22 @@
-import { createPalette, createTheme, extendTheme } from "@you-ui/core";
+import { createPalette, createTheme } from "@you-ui/core";
 
-const palette = createPalette({
+const { light, dark } = createPalette({
   primary: "#7c43ab",
 });
 
-export const baseTheme = createTheme({
+export const baseTheme = {
   fonts: {
     icons: "var(--app-fonts-icons)",
     sans: "var(--app-fonts-roboto), sans-serif",
   },
+};
+
+export const lightTheme = createTheme({
+  ...baseTheme,
+  colors: light,
 });
 
-export const lightTheme = extendTheme(
-  createTheme({
-    colors: palette.light,
-  }),
-  [baseTheme]
-);
-
-export const darkTheme = extendTheme(
-  createTheme({
-    colors: palette.dark,
-  }),
-  [baseTheme]
-);
+export const darkTheme = createTheme({
+  ...baseTheme,
+  colors: dark,
+});

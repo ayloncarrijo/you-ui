@@ -1,6 +1,5 @@
-import type { Typographies } from "../types/typography";
 import { getRemFromPx } from "../utils/css";
-import { createTypographyTokens } from "../utils/typography";
+import { createTypographyScales } from "../utils/typography";
 
 export const zIndices = {
   0: 0,
@@ -67,139 +66,131 @@ export const sizes = {
 
 export const space = sizes;
 
-export const typographies: Typographies = {
-  display: {
-    lg: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(57),
-      lineHeight: getRemFromPx(64),
-      fontWeight: 400,
-      letterSpacing: 0,
+export const { fonts, fontSizes, fontWeights, letterSpacings, lineHeights } =
+  createTypographyScales(
+    {
+      display: {
+        lg: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(57),
+          lineHeight: getRemFromPx(64),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+        md: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(45),
+          lineHeight: getRemFromPx(52),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+        sm: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(36),
+          lineHeight: getRemFromPx(44),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+      },
+      headline: {
+        lg: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(32),
+          lineHeight: getRemFromPx(40),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+        md: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(28),
+          lineHeight: getRemFromPx(36),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+        sm: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(24),
+          lineHeight: getRemFromPx(32),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+      },
+      title: {
+        lg: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(22),
+          lineHeight: getRemFromPx(28),
+          fontWeight: 400,
+          letterSpacing: 0,
+        },
+        md: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(16),
+          lineHeight: getRemFromPx(24),
+          fontWeight: 500,
+          letterSpacing: getRemFromPx(0.15),
+        },
+        sm: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(14),
+          lineHeight: getRemFromPx(20),
+          fontWeight: 500,
+          letterSpacing: getRemFromPx(0.1),
+        },
+      },
+      body: {
+        lg: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(16),
+          lineHeight: getRemFromPx(24),
+          fontWeight: 400,
+          letterSpacing: getRemFromPx(0.15),
+        },
+        md: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(14),
+          lineHeight: getRemFromPx(20),
+          fontWeight: 400,
+          letterSpacing: getRemFromPx(0.25),
+        },
+        sm: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(12),
+          lineHeight: getRemFromPx(16),
+          fontWeight: 400,
+          letterSpacing: getRemFromPx(0.4),
+        },
+      },
+      label: {
+        lg: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(14),
+          lineHeight: getRemFromPx(20),
+          fontWeight: 500,
+          letterSpacing: getRemFromPx(0.1),
+        },
+        md: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(12),
+          lineHeight: getRemFromPx(16),
+          fontWeight: 500,
+          letterSpacing: getRemFromPx(0.5),
+        },
+        sm: {
+          fontFamily: "$sans",
+          fontSize: getRemFromPx(11),
+          lineHeight: getRemFromPx(16),
+          fontWeight: 500,
+          letterSpacing: getRemFromPx(0.5),
+        },
+      },
     },
-    md: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(45),
-      lineHeight: getRemFromPx(52),
-      fontWeight: 400,
-      letterSpacing: 0,
-    },
-    sm: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(36),
-      lineHeight: getRemFromPx(44),
-      fontWeight: 400,
-      letterSpacing: 0,
-    },
-  },
-  headline: {
-    lg: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(32),
-      lineHeight: getRemFromPx(40),
-      fontWeight: 400,
-      letterSpacing: 0,
-    },
-    md: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(28),
-      lineHeight: getRemFromPx(36),
-      fontWeight: 400,
-      letterSpacing: 0,
-    },
-    sm: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(24),
-      lineHeight: getRemFromPx(32),
-      fontWeight: 400,
-      letterSpacing: 0,
-    },
-  },
-  title: {
-    lg: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(22),
-      lineHeight: getRemFromPx(28),
-      fontWeight: 400,
-      letterSpacing: 0,
-    },
-    md: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(16),
-      lineHeight: getRemFromPx(24),
-      fontWeight: 500,
-      letterSpacing: getRemFromPx(0.15),
-    },
-    sm: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(14),
-      lineHeight: getRemFromPx(20),
-      fontWeight: 500,
-      letterSpacing: getRemFromPx(0.1),
-    },
-  },
-  body: {
-    lg: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(16),
-      lineHeight: getRemFromPx(24),
-      fontWeight: 400,
-      letterSpacing: getRemFromPx(0.15),
-    },
-    md: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(14),
-      lineHeight: getRemFromPx(20),
-      fontWeight: 400,
-      letterSpacing: getRemFromPx(0.25),
-    },
-    sm: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(12),
-      lineHeight: getRemFromPx(16),
-      fontWeight: 400,
-      letterSpacing: getRemFromPx(0.4),
-    },
-  },
-  label: {
-    lg: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(14),
-      lineHeight: getRemFromPx(20),
-      fontWeight: 500,
-      letterSpacing: getRemFromPx(0.1),
-    },
-    md: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(12),
-      lineHeight: getRemFromPx(16),
-      fontWeight: 500,
-      letterSpacing: getRemFromPx(0.5),
-    },
-    sm: {
-      fontFamily: "$sans",
-      fontSize: getRemFromPx(11),
-      lineHeight: getRemFromPx(16),
-      fontWeight: 500,
-      letterSpacing: getRemFromPx(0.5),
-    },
-  },
-};
-
-export const fonts = {
-  icons: "'Material Symbols Outlined'",
-  sans: "Roboto, sans-serif",
-  serif: "'Roboto Serif', serif",
-  mono: "'Roboto Mono', monospace",
-  ...createTypographyTokens(typographies, "fontFamily"),
-};
-
-export const fontSizes = createTypographyTokens(typographies, "fontSize");
-
-export const fontWeights = createTypographyTokens(typographies, "fontWeight");
-
-export const letterSpacings = createTypographyTokens(
-  typographies,
-  "letterSpacing"
-);
-
-export const lineHeights = createTypographyTokens(typographies, "lineHeight");
+    {
+      fonts: {
+        icons: "'Material Symbols Outlined'",
+        sans: "Roboto, sans-serif",
+        serif: "'Roboto Serif', serif",
+        mono: "'Roboto Mono', monospace",
+      },
+    }
+  );

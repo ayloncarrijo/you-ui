@@ -14,6 +14,13 @@ export type ComponentRef<As> = As extends React.ElementType
   ? React.ComponentRef<As>
   : never;
 
+export type GetDefaultAs<T> = T extends ForwardRefComponent<
+  unknown,
+  infer DefaultAs
+>
+  ? DefaultAs
+  : never;
+
 export type ForwardRefRenderFunction<Props, As> = (
   props: PropsWithAs<Props, As>,
   ref: React.ForwardedRef<ComponentRef<As>>
@@ -22,10 +29,3 @@ export type ForwardRefRenderFunction<Props, As> = (
 export type ForwardRefComponent<Props, DefaultAs> = <As = DefaultAs>(
   props: PropsWithAs<Props, As> & React.RefAttributes<ComponentRef<As>>
 ) => React.ReactElement | null;
-
-export type GetDefaultAs<T> = T extends ForwardRefComponent<
-  unknown,
-  infer DefaultAs
->
-  ? DefaultAs
-  : never;
