@@ -9,17 +9,17 @@ export const baseStyles = globalCss({
   },
 
   html: {
-    lineHeight: 1.5,
     WebkitTextSizeAdjust: "100%",
     MozTabSize: 4,
     tabSize: 4,
-    fontFamily: "$sans",
     fontFeatureSettings: "normal",
+    typography: "$bodyLg",
   },
 
   body: {
     margin: 0,
     lineHeight: "inherit",
+    backgroundColor: "$background",
   },
 
   hr: {

@@ -2,7 +2,7 @@ import { Box, Text } from "@you-ui/react";
 
 export default function Home(): JSX.Element {
   return (
-    <Box css={{ minHeight: "100vh", backgroundColor: "$background" }}>
+    <Box>
       <Text
         as="h1"
         typography="displayLg"

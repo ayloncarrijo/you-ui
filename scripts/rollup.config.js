@@ -20,6 +20,11 @@ export const createRollupConfig = (
         format: "esm",
       },
     ],
-    plugins: [external(), resolve(), commonjs(), typescript()],
+    plugins: [
+      external({ includeDependencies: true }),
+      resolve(),
+      commonjs(),
+      typescript(),
+    ],
     ...config,
   });
